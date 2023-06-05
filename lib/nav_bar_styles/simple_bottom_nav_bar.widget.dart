@@ -12,7 +12,6 @@ class BottomNavSimple extends StatelessWidget {
       navBarEssentials!.navBarHeight == 0
           ? const SizedBox.shrink()
           : AnimatedContainer(
-              width: 150,
               height: height,
               duration: const Duration(milliseconds: 1000),
               child: AnimatedContainer(
@@ -45,7 +44,7 @@ class BottomNavSimple extends StatelessWidget {
                           const SizedBox.shrink()
                         else
                           Padding(
-                            padding: const EdgeInsets.only(top: 15),
+                            padding: const EdgeInsets.only(top: 10),
                             child: Material(
                               type: MaterialType.transparency,
                               child: FittedBox(
@@ -88,24 +87,22 @@ class BottomNavSimple extends StatelessWidget {
             bottom: navBarEssentials!.padding?.bottom ??
                 navBarEssentials!.navBarHeight! * 0.12),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: navBarEssentials!.items!.map((final item) {
             final int index = navBarEssentials!.items!.indexOf(item);
-            return Flexible(
-              child: GestureDetector(
-                onTap: () {
-                  if (navBarEssentials!.items![index].onPressed != null) {
-                    navBarEssentials!.items![index].onPressed!(
-                        navBarEssentials!.selectedScreenBuildContext);
-                  } else {
-                    navBarEssentials!.onItemSelected!(index);
-                  }
-                },
-                child: _buildItem(
-                    item,
-                    navBarEssentials!.selectedIndex == index,
-                    navBarEssentials!.navBarHeight),
-              ),
+            return GestureDetector(
+              onTap: () {
+                if (navBarEssentials!.items![index].onPressed != null) {
+                  navBarEssentials!.items![index].onPressed!(
+                      navBarEssentials!.selectedScreenBuildContext);
+                } else {
+                  navBarEssentials!.onItemSelected!(index);
+                }
+              },
+              child: _buildItem(
+                  item,
+                  navBarEssentials!.selectedIndex == index,
+                  navBarEssentials!.navBarHeight),
             );
           }).toList(),
         ),
