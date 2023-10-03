@@ -76,7 +76,7 @@ class BottomNavSimple extends StatelessWidget {
   @override
   Widget build(final BuildContext context) =>
       Container(
-        color: Color(0xFF323743),
+        // color: Color(0xFF323743),
         child: SafeArea(
             top: false,
             child: Container(
