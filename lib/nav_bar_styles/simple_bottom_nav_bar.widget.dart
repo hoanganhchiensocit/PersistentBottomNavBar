@@ -75,54 +75,51 @@ class BottomNavSimple extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) =>
-      Container(
-        color: Color(0xFF323743),
-        child: SafeArea(
-            top: false,
-            child: Container(
-              width: double.infinity,
-              height: navBarEssentials!.navBarHeight,
-              padding: EdgeInsets.only(
-                  left: navBarEssentials!.padding?.left ??
-                      MediaQuery
-                          .of(context)
-                          .size
-                          .width * 0.04,
-                  right: navBarEssentials!.padding?.right ??
-                      MediaQuery
-                          .of(context)
-                          .size
-                          .width * 0.04,
-                  top: navBarEssentials!.padding?.top ??
-                      navBarEssentials!.navBarHeight! * 0.15,
-                  bottom: navBarEssentials!.padding?.bottom ??
-                      navBarEssentials!.navBarHeight! * 0.12),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: navBarEssentials!.items!.map((final item) {
-                  final int index = navBarEssentials!.items!.indexOf(item);
-                  //
-                  if (index == 2) {
-                    return SizedBox(width: 60);
-                  }
-                  //4 item xung quanh
-                  return Flexible(flex: 1, child: GestureDetector(
-                    onTap: () {
-                      if (navBarEssentials!.items![index].onPressed != null) {
-                        navBarEssentials!.items![index].onPressed!(
-                            navBarEssentials!.selectedScreenBuildContext);
-                      } else {
-                        navBarEssentials!.onItemSelected!(index);
-                      }
-                    },
-                    child: _buildItem(
-                        item,
-                        navBarEssentials!.selectedIndex == index,
-                        navBarEssentials!.navBarHeight),
-                  ));
-                }).toList(),
-              ),
-            )
-        ),
+      SafeArea(
+          top: false,
+          child: Container(
+            width: double.infinity,
+            height: navBarEssentials!.navBarHeight,
+            padding: EdgeInsets.only(
+                left: navBarEssentials!.padding?.left ??
+                    MediaQuery
+                        .of(context)
+                        .size
+                        .width * 0.04,
+                right: navBarEssentials!.padding?.right ??
+                    MediaQuery
+                        .of(context)
+                        .size
+                        .width * 0.04,
+                top: navBarEssentials!.padding?.top ??
+                    navBarEssentials!.navBarHeight! * 0.15,
+                bottom: navBarEssentials!.padding?.bottom ??
+                    navBarEssentials!.navBarHeight! * 0.12),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: navBarEssentials!.items!.map((final item) {
+                final int index = navBarEssentials!.items!.indexOf(item);
+                //
+                if (index == 2) {
+                  return SizedBox(width: 60);
+                }
+                //4 item xung quanh
+                return Flexible(flex: 1, child: GestureDetector(
+                  onTap: () {
+                    if (navBarEssentials!.items![index].onPressed != null) {
+                      navBarEssentials!.items![index].onPressed!(
+                          navBarEssentials!.selectedScreenBuildContext);
+                    } else {
+                      navBarEssentials!.onItemSelected!(index);
+                    }
+                  },
+                  child: _buildItem(
+                      item,
+                      navBarEssentials!.selectedIndex == index,
+                      navBarEssentials!.navBarHeight),
+                ));
+              }).toList(),
+            ),
+          )
       );
 }

@@ -34,6 +34,7 @@ part "nav_bar_styles/style_16_bottom_nav_bar.widget.dart";
 part "nav_bar_styles/style_17_bottom_nav_bar.widget.dart";
 part "nav_bar_styles/style_18_bottom_nav_bar.widget.dart";
 part "nav_bar_styles/style_19_bottom_nav_bar.widget.dart";
+part "nav_bar_styles/style_20_bottom_nav_bar.widget.dart";
 part "nav_bar_styles/style_2_bottom_nav_bar.widget.dart";
 part "nav_bar_styles/style_3_bottom_nav_bar.widget.dart";
 part "nav_bar_styles/style_4_bottom_nav_bar.widget.dart";
